@@ -187,53 +187,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             child: Image.asset(Constants.kitchen, height: 200, fit: BoxFit.fitWidth,)),
                         ),
                         GlobalWidget().slideContainer(isButtonAtEnd, 10, 400, 71),
-                        // AnimatedPositioned(
-                        //     duration: const Duration(seconds: 4),
-                        //     curve: Curves.easeInOut,
-                        //     height: 50,
-                        //     width: isButtonAtEnd ? 400 : 71,
-                        //     bottom: 10,
-                        //     child:  Padding(
-                        //       padding: const EdgeInsets.symmetric(horizontal: 10),
-                        //       child: ClipRRect(
-                        //         borderRadius: BorderRadius.circular(23),
-                        //         child: ClipRect(
-                        //           child: BackdropFilter(
-                        //             filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                        //             child: Container(
-                        //               decoration: BoxDecoration(
-                        //                 borderRadius: BorderRadius.circular(30),
-                        //                 color:Colors.grey.withOpacity(0.1),
-                        //               ),
-                        //               alignment: Alignment.center,
-                        //             ),
-                        //           ),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ),
-
                         GlobalWidget().slideIcon(isButtonAtEnd, 341, 12.5),
-                          // AnimatedPositioned(
-                          //   duration: const Duration(seconds: 4),
-                          //   curve: Curves.easeInOut,
-                          //   left: isButtonAtEnd ? 341 : 12.5,
-                          //   bottom: 12,
-                          //   child: GestureDetector(
-                          //     onTap: (){
-                          //       setState(() {
-                          //           isButtonAtEnd = !isButtonAtEnd;
-                          //         });
-                          //       startTextAnimation();
-                          //     },
-                          //     child: CircleAvatar(
-                          //       radius: 23,
-                          //       backgroundColor: Pallets.white,
-                          //       child: Icon(Icons.arrow_forward_ios, color: Pallets.buttonColor, size: 10,),
-                          //     ),
-                          //   ),
-                          // ),
-                        
                           Positioned(
                             bottom: 10,
                             child: SizedBox(

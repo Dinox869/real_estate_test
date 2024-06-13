@@ -6,7 +6,7 @@ import 'package:real_estate/common/pallets.dart';
 
 class GlobalWidget {
 
-  Widget slideContainer( bool canSlide, double padding, double widthEnd, double widthStart ,[double height = 50] ){
+  Widget slideContainer( bool canSlide, double padding, double widthEnd, double widthStart ,[double height = 50]) {
     return AnimatedPositioned(
                             duration:  const Duration(seconds: 4),
                             curve: Curves.easeInOut,

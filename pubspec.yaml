@@ -19,6 +19,8 @@ dependencies:
   google_fonts: ^6.2.1
   #ANIMATION
   animate_do: ^3.3.4
+  #ICONS
+  material_symbols_icons: ^4.2744.0
 
 
 dev_dependencies:
