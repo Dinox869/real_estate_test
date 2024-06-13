@@ -21,6 +21,8 @@ dependencies:
   animate_do: ^3.3.4
   #ICONS
   material_symbols_icons: ^4.2744.0
+  #COUNT
+  countup: ^0.1.4
 
 
 dev_dependencies:

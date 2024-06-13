@@ -72,7 +72,7 @@ class _MapsPageState extends State<MapsPage> with TickerProviderStateMixin {
   }
 
   void animateLayers() async {
-    debugPrint('step 1');
+    
     setState(() {
                                   animateController.reverse();
                                   animateController2.reverse();
@@ -85,7 +85,6 @@ class _MapsPageState extends State<MapsPage> with TickerProviderStateMixin {
                                 });
                                 await Future.delayed(Duration(milliseconds: 100), () {
                                   setState(() {
-                                    debugPrint('step 2');
                                   showPrice = true;
                                   animateController.forward();
                                   animateController2.forward();
@@ -108,6 +107,7 @@ class _MapsPageState extends State<MapsPage> with TickerProviderStateMixin {
         width: MediaQuery.of(context).size.width,
         child: Stack(
           children: [
+            
               Image.asset(Constants.map, fit: BoxFit.fill, height: MediaQuery.of(context).size.height, width: MediaQuery.of(context).size.width,),
 
               Positioned(
@@ -117,7 +117,7 @@ class _MapsPageState extends State<MapsPage> with TickerProviderStateMixin {
                   child: Row (
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      AnimatedScale(
+                    AnimatedScale(
                         duration: const Duration(seconds: 2), // Duration of the animation
                         curve: Curves.ease, // Curve of the animation
                         scale: _isExpanded ? 1 : 0, 
@@ -544,6 +544,7 @@ class _MapsPageState extends State<MapsPage> with TickerProviderStateMixin {
                   ),
                 ),
               )
+          
           ],
         ),
       ),
