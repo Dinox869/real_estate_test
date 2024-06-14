@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   // Change minimum value of the draggableScroll and enable text animation
   void setMinimum() {
     setState(() {
-      minimumValue = MediaQuery.of(context).size.height < 650 ? 0.2 : 0.4;
+      minimumValue = MediaQuery.of(context).size.height < 650 ? 0.15 : MediaQuery.of(context).size.height < 807 ? 0.35 :0.4 ;
       isButtonAtEnd = !isButtonAtEnd;
       startTextAnimation();
     });
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('${MediaQuery.of(context).size.width }');
+    debugPrint('${MediaQuery.of(context).size.height }');
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -167,7 +167,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   ),
                                 ),
                                 onPressed: () {
-                                  _scrollToTop();
                                 },
                                 child: FadeIn(
                                   animate: locationText,
@@ -264,7 +263,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    const SizedBox(height: 20),
+                                    SizedBox(height: MediaQuery.of(context).size.height < 650 ? 23 : MediaQuery.of(context).size.height < 807 ? 22 :20),
                                     Text(Constants.buy,
                                         style: Theme.of(context)
                                             .textTheme
@@ -273,7 +272,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                               fontSize: 14,
                                               color: Pallets.textColor3,
                                             )),
-                                    const SizedBox(height: 35),
+                                    // const SizedBox(height: 35),
+                                    SizedBox(height: MediaQuery.of(context).size.height < 650 ? 27 : MediaQuery.of(context).size.height < 807 ? 26 : 35),
                                     Countup(
                                         begin: 0,
                                         end: showDigits
@@ -306,8 +306,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               curve: Curves.ease, // Curve of the animation
                               scale: showDigits ? 1 : 0,
                               child: Container(
-                                width: MediaQuery.of(context).size.width  < 370 ? 160 : 185,
-                                height: MediaQuery.of(context).size.height < 650 ? 160 : 185,
+                                width: MediaQuery.of(context).size.width  < 355 ? 160 : MediaQuery.of(context).size.width < 370 ? 160 : 185,
+                                height: MediaQuery.of(context).size.height < 650 ? 155 : MediaQuery.of(context).size.height < 807 ? 160 : 185,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   color: Pallets.white,
@@ -323,7 +323,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                               fontSize: 14,
                                               color: Pallets.textColor1,
                                             )),
-                                    const SizedBox(height: 37),
+                                    SizedBox(height: MediaQuery.of(context).size.height < 650 ? 25 : MediaQuery.of(context).size.height < 807 ? 25 : 37,),
                                     Countup(
                                         begin: 0,
                                         end: showDigits
