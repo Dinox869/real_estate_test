@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   // Change minimum value of the draggableScroll and enable text animation
   void setMinimum() {
     setState(() {
-      minimumValue = 0.4;
+      minimumValue = MediaQuery.of(context).size.height < 650 ? 0.2 : 0.4;
       isButtonAtEnd = !isButtonAtEnd;
       startTextAnimation();
     });
@@ -124,6 +124,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('${MediaQuery.of(context).size.width }');
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -259,7 +260,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               scale: showDigits ? 1 : 0,
                               child: CircleAvatar(
                                 backgroundColor: Pallets.deepOrange,
-                                radius: 93,
+                                radius: MediaQuery.of(context).size.width  < 370 ? 83 : 93,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
@@ -305,8 +306,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               curve: Curves.ease, // Curve of the animation
                               scale: showDigits ? 1 : 0,
                               child: Container(
-                                width: 185,
-                                height: 185,
+                                width: MediaQuery.of(context).size.width  < 370 ? 160 : 185,
+                                height: MediaQuery.of(context).size.height < 650 ? 160 : 185,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   color: Pallets.white,
@@ -362,7 +363,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 child: DraggableScrollableSheet(
                     initialChildSize: minimumValue,
                     minChildSize: minimumValue,
-                    maxChildSize: 0.65,
+                    maxChildSize: MediaQuery.of(context).size.height < 650 ?  0.58 : 0.65,
                     expand: false,
                     snap: true,
                     controller: dragScrollController,
@@ -396,15 +397,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                           fit: BoxFit.fitWidth,
                                         )),
                                   ),
-                                  GlobalWidget().slideContainer(
-                                      isButtonAtEnd, 10, 400, 71),
-                                  GlobalWidget()
-                                      .slideIcon(isButtonAtEnd, 341, 12.5),
+                                  
+                                  GlobalWidget().slideContainer(isButtonAtEnd, 10, MediaQuery.of(context).size.width < 370 ? 350 : 400, 71),
+
+                                  GlobalWidget().slideIcon(isButtonAtEnd, MediaQuery.of(context).size.width < 370 ? 291 : 341, 12.5),
+
                                   Positioned(
                                       bottom: 10,
                                       child: SizedBox(
                                         height: 50,
-                                        width: 400,
+                                        width:  MediaQuery.of(context).size.width < 370 ? 350 : 400,
                                         child: Center(
                                           child: FadeIn(
                                               animate: showText,
@@ -417,13 +419,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                       .textTheme
                                                       .titleLarge
                                                       ?.copyWith(
-                                                          fontSize: 16,
+                                                          fontSize: 14,
                                                           color: Pallets
                                                               .textColor5,
                                                           fontWeight: FontWeight
                                                               .w500))),
                                         ),
-                                      ))
+                                    )
+                                  )
                                 ],
                               ),
                               const SizedBox(height: 7),
@@ -438,6 +441,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                     .size
                                                     .width /
                                                 2,
+                                            height: 308,    
                                             child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(16),
@@ -447,14 +451,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                 )),
                                           ),
                                           GlobalWidget().slideContainer(
-                                              isButtonAtEnd, 10, 205, 61, 40),
+                                              isButtonAtEnd, 10, MediaQuery.of(context).size.width < 370 ? 183 : 205, 61, 40),
                                           GlobalWidget().slideIcon(
-                                              isButtonAtEnd, 155, 12.5, 18),
+                                              isButtonAtEnd,MediaQuery.of(context).size.width < 370 ? 135 : 155 , 12.5, 18),
                                           Positioned(
                                               bottom: 5,
                                               child: SizedBox(
                                                 height: 50,
-                                                width: 205,
+                                                width: MediaQuery.of(context).size.width < 370 ? 183 : 205,
                                                 child: Row(
                                                   children: [
                                                     const SizedBox(width: 20),
@@ -475,7 +479,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                                 .titleLarge
                                                                 ?.copyWith(
                                                                     fontSize:
-                                                                        16,
+                                                                        14,
                                                                     color: Pallets
                                                                         .textColor5,
                                                                     fontWeight:
@@ -494,7 +498,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       Stack(
                                         children: [
                                           SizedBox(
-                                            width: 185,
+                                            width: MediaQuery.of(context).size.width < 370 ? 160 : 185,
                                             height: 150,
                                             child: ClipRRect(
                                                 borderRadius:
@@ -505,14 +509,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                 )),
                                           ),
                                           GlobalWidget().slideContainer(
-                                              isButtonAtEnd, 10, 190, 61, 40),
+                                              isButtonAtEnd, 10,  MediaQuery.of(context).size.width < 370 ? 165 : 190, 61, 40),
                                           GlobalWidget().slideIcon(
-                                              isButtonAtEnd, 141, 12.5, 18),
+                                              isButtonAtEnd, MediaQuery.of(context).size.width < 370 ? 117 : 141, 12.5, 18),
                                           Positioned(
                                               bottom: 5,
                                               child: SizedBox(
                                                 height: 50,
-                                                width: 190,
+                                                width: MediaQuery.of(context).size.width < 370 ? 165 : 190,
                                                 child: Row(children: [
                                                   const SizedBox(width: 20),
                                                   FadeIn(
@@ -530,7 +534,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                               .textTheme
                                                               .titleLarge
                                                               ?.copyWith(
-                                                                  fontSize: 16,
+                                                                  fontSize: 12,
                                                                   color: Pallets
                                                                       .textColor5,
                                                                   fontWeight:
@@ -544,7 +548,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       Stack(
                                         children: [
                                           SizedBox(
-                                            width: 185,
+                                            width: MediaQuery.of(context).size.width < 370 ? 160 : 185,
                                             height: 150,
                                             child: ClipRRect(
                                                 borderRadius:
@@ -555,14 +559,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                 )),
                                           ),
                                           GlobalWidget().slideContainer(
-                                              isButtonAtEnd, 10, 190, 61, 40),
+                                              isButtonAtEnd, 10, MediaQuery.of(context).size.width < 370 ? 165 : 190 , 61, 40),
                                           GlobalWidget().slideIcon(
-                                              isButtonAtEnd, 141, 12.5, 18),
+                                              isButtonAtEnd, MediaQuery.of(context).size.width < 370 ? 117 : 141 , 12.5, 18),
                                           Positioned(
                                               bottom: 5,
                                               child: SizedBox(
                                                 height: 50,
-                                                width: 190,
+                                                width:  MediaQuery.of(context).size.width < 370 ? 165 : 190,
                                                 child: Row(children: [
                                                   const SizedBox(width: 20),
                                                   FadeIn(
@@ -580,7 +584,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                               .textTheme
                                                               .titleLarge
                                                               ?.copyWith(
-                                                                  fontSize: 16,
+                                                                  fontSize: 12,
                                                                   color: Pallets
                                                                       .textColor5,
                                                                   fontWeight:

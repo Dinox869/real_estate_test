@@ -64,7 +64,8 @@ class _RootPageState extends State<RootPage> {
                       decoration: BoxDecoration(
                           color: Pallets.navigatorColor,
                           borderRadius: BorderRadius.circular(30)),
-                      margin: const EdgeInsets.symmetric(horizontal: 60),
+                      margin: EdgeInsets.symmetric(horizontal:  MediaQuery.of(context).size.width < 370 ? 40 : 60 ),
+                      padding: const EdgeInsets.symmetric(horizontal: 3),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -270,6 +271,7 @@ class _RootPageState extends State<RootPage> {
                             child: Icon(Icons.favorite,
                                 color: Pallets.white, size: 20),
                           ),
+                          SizedBox(width: 2,),
                           CircleAvatar(
                             radius: 23,
                             backgroundColor: Pallets.textColor2,
