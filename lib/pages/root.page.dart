@@ -28,7 +28,7 @@ class _RootPageState extends State<RootPage> {
 
   // Raises the nav bar 
   void raiseBar() async {
-    await Future.delayed(const Duration(seconds: 9),(){
+    await Future.delayed(const Duration(seconds: 7),(){
       setState(() {
           raise = true;
         });
@@ -54,7 +54,7 @@ class _RootPageState extends State<RootPage> {
                   },
                   child: isHome ? const HomePage() : const MapsPage()),
               AnimatedPositioned(
-                  duration: const Duration(seconds: 4),
+                  duration: const Duration(seconds: 2),
                   curve: Curves.easeInOut,
                   bottom: raise ? 20 : -70,
                   child: SizedBox(

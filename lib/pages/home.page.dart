@@ -61,9 +61,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       animateController7.forward();
       animateController8.forward();
     });
-    await Future.delayed(const Duration(milliseconds: 3000));
+    await Future.delayed(const Duration(milliseconds: 2000));
     _scrollToTop();
-    await Future.delayed(const Duration(milliseconds: 1200));
+    await Future.delayed(const Duration(milliseconds: 1000));
     setMinimum();
   }
 
@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   // enable draggablescroll to scroll to top
   void _scrollToTop() {
     dragScrollController.animateTo(
-      0.65,
+      0.66,
       duration: const Duration(milliseconds: 1500),
       curve: Curves.easeInOut,
     );
@@ -363,7 +363,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 child: DraggableScrollableSheet(
                     initialChildSize: minimumValue,
                     minChildSize: minimumValue,
-                    maxChildSize: MediaQuery.of(context).size.height < 650 ?  0.58 : 0.65,
+                    maxChildSize: MediaQuery.of(context).size.height < 650 ?  0.58 : 0.66,
                     expand: false,
                     snap: true,
                     controller: dragScrollController,
