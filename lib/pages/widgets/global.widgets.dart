@@ -4,7 +4,12 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:real_estate/common/pallets.dart';
 
+
+// reusable classes ... 
+
 class GlobalWidget {
+
+// Animated a container expanding in width
   Widget slideContainer(
       bool canSlide, double padding, double widthEnd, double widthStart,
       [double height = 50]) {
@@ -35,6 +40,7 @@ class GlobalWidget {
     );
   }
 
+// Animated a icon moving
   Widget slideIcon(bool canSlide, double widthEnd, double widthStart,
       [double radius = 23]) {
     return AnimatedPositioned(
@@ -53,6 +59,7 @@ class GlobalWidget {
       ),
     );
   }
+
 
   Widget fadeInText(
       double width,

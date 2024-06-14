@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:real_estate/common/pallets.dart';
 
+
+// This the apps theme and font
+
 ThemeData buildAppTheme() {
   final base = ThemeData(
       appBarTheme: const AppBarTheme(
-        // systemOverlayStyle: SystemUiOverlayStyle(
-        //   statusBarColor: Colors.white,
-        //   systemNavigationBarDividerColor: Colors.white,
-        //   statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-        //   statusBarBrightness: Brightness.dark, // For iOS (dark icons)
-        // ),
       ),
       brightness: Brightness.light,
       primaryColor: Pallets.textColor1,

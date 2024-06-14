@@ -10,6 +10,8 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
+
+    // to preload the assets images
     precacheImage(AssetImage(Constants.profile), context);
     precacheImage(AssetImage(Constants.kitchen), context);
     precacheImage(AssetImage(Constants.livingArea), context);

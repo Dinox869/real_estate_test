@@ -1,16 +1,22 @@
-# real_estate
+# Real Estate App
 
-A new Flutter project.
+This is a Flutter project that demonstrates the developer's design skill and accuracy. The project is inspired by a video on Dribbble that briefly showcases a real estate app. You can view the inspiration video [here](https://dribbble.com/shots/23780608-Real-Estate-App).
 
-## Getting Started
+## Plugins Used
 
-This project is a starting point for a Flutter application.
+This project utilizes the following plugins:
+- `google_fonts: ^6.2.1`
+- `animate_do: ^3.3.4`
+- `material_symbols_icons: ^4.2744.0`
+- `countup: ^0.1.4`
 
-A few resources to get you started if this is your first Flutter project:
+## Description
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+The Real Estate App is a design-focused project that showcases various animations and UI elements to create an engaging user experience. The app is built using Flutter and demonstrates the use of multiple plugins to enhance the visual and functional aspects of the application.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Running the Project
+
+To run the project, use the following command:
+
+```sh
+flutter run

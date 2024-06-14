@@ -41,6 +41,7 @@ class _MapsPageState extends State<MapsPage> with TickerProviderStateMixin {
     super.initState();
   }
 
+// starts the animation for all the widgets 
   void animation() async {
     await Future.delayed(const Duration(milliseconds: 200), () async {
       setState(() {
@@ -58,6 +59,7 @@ class _MapsPageState extends State<MapsPage> with TickerProviderStateMixin {
     });
   }
 
+ // Animates the icon to text change
   void animatePrice() async {
     setState(() {
       animateController.reverse();
@@ -82,6 +84,8 @@ class _MapsPageState extends State<MapsPage> with TickerProviderStateMixin {
     });
   }
 
+
+// Animates the text to icon change
   void animateLayers() async {
     setState(() {
       animateController.reverse();

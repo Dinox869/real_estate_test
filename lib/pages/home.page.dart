@@ -19,9 +19,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       nameText = false,
       showDigits = false;
   bool _animate = false;
-  double minimumValue = 0.02;
+  double minimumValue = 0.0002;
+  // controller for the scrolling images at the bottom
   final DraggableScrollableController dragScrollController =
       DraggableScrollableController();
+  // controller for the fadeIn widgets    
   late AnimationController animateController,
       animateController2,
       animateController3,
@@ -31,14 +33,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       animateController7,
       animateController8;
 
-  void animate() async {
+  // activated the top Bar animation
+  void animateAppBar() async {
+    await Future.delayed(const Duration(milliseconds: 500));
     setState(() {
-      isButtonAtEnd = !isButtonAtEnd;
       _animate = !_animate;
     });
     textAnimation();
   }
 
+  // Activated the text animation in the top bar button
   void textAnimation() async {
     await Future.delayed(const Duration(milliseconds: 1800));
     setState(() {
@@ -47,6 +51,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     });
   }
 
+  // Activated the digits count animation, draggablescroll animation 
   void nameAnimation() async {
     await Future.delayed(const Duration(milliseconds: 2000));
     setState(() {
@@ -64,7 +69,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     animateController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 10));
@@ -82,10 +86,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         vsync: this, duration: const Duration(milliseconds: 10));
     animateController8 = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 10));
-    animate();
+    
+    animateAppBar();
     nameAnimation();
+    
   }
 
+  // enable draggablescroll to scroll to top
   void _scrollToTop() {
     dragScrollController.animateTo(
       0.65,
@@ -94,12 +101,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     );
   }
 
+  // Change minimum value of the draggableScroll and enable text animation
   void setMinimum() {
     setState(() {
       minimumValue = 0.4;
+      isButtonAtEnd = !isButtonAtEnd;
+      startTextAnimation();
     });
   }
 
+  //Starts the fadein text in the images
   void startTextAnimation() async {
     await Future.delayed(const Duration(seconds: 3));
     setState(() {
@@ -118,31 +129,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         scrollDirection: Axis.vertical,
         child: Container(
           height: MediaQuery.of(context).size.height,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: RadialGradient(
               center: Alignment.centerRight,
               radius: 1.6,
-              colors: [
-                Color(0xFFFAD7AF),
-                Color(0xFFFADBB7),
-                Color(0xFFFADFBF),
-                Color(0xFFFADFBF),
-                Color(0xFFFADFBF),
-                Color(0xFFF9EBDA),
-                Color(0xFFF9EBDA),
-                Color(0xFFF9EBDA),
-                Color(0xFFF9EBDA),
-                Color(0xFFF9EEE2),
-                Color(0xFFF9EFE4),
-                Color(0xFFF8F0E7),
-                Color(0xFFF8F2EB),
-                Color(0xFFF8F3ED),
-                Color(0xFFF8F4EF),
-                Color(0xFFF8F5F2),
-                Color(0xFFF8F6F3),
-                Color(0xFFF8F7F5),
-                Color(0xFFF8F8F8),
-              ],
+              colors: Pallets.palletColors
             ),
           ),
           child: Stack(

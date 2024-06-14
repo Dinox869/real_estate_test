@@ -1,5 +1,7 @@
-class Constants {
 
+// This call has all the string within the app
+
+class Constants {
 
   static String location = 'Saint Petersburg';
   static String name = 'Hi, Marina';

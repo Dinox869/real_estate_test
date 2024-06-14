@@ -13,11 +13,27 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   final PageController controller = PageController();
-  bool isHome = true, buttonEffects = false, transitioning = false;
-
+  bool isHome = true, buttonEffects = false, transitioning = false, raise = false;
+  // Size of the avatars used in the bottom nav bar
   double size1 = 23, size2 = 27, size3 = 27, size4 = 27, size5 = 27;
   double size6 = 23, size7 = 27, size8 = 27, size9 = 27, size10 = 27;
   int timer1 = 100, timer2 = 105, timer3 = 105;
+
+
+  @override
+  void initState() {
+    raiseBar();
+    super.initState();
+  }
+
+  // Raises the nav bar 
+  void raiseBar() async {
+    await Future.delayed(const Duration(seconds: 9),(){
+      setState(() {
+          raise = true;
+        });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +45,18 @@ class _RootPageState extends State<RootPage> {
           width: MediaQuery.of(context).size.width,
           child: Stack(
             children: [
+              // Enables the easy transition between pages ... 
               AnimatedSwitcher(
                   duration: const Duration(milliseconds: 800),
                   transitionBuilder:
                       (Widget child, Animation<double> animation) {
-                    return FadeTransition(child: child, opacity: animation);
+                    return FadeTransition(opacity: animation, child: child);
                   },
                   child: isHome ? const HomePage() : const MapsPage()),
-              Positioned(
-                  bottom: 20,
+              AnimatedPositioned(
+                  duration: const Duration(seconds: 4),
+                  curve: Curves.easeInOut,
+                  bottom: raise ? 20 : -70,
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 65,
